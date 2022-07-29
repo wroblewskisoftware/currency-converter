@@ -8,5 +8,8 @@ html {
 
 body {
     font-family: 'Lato', sans-serif;
-    background-color: whitesmoke;
+    background-image: url("../images/coins.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: top;
 }
