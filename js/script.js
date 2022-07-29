@@ -12,6 +12,7 @@ let chfValue = 4.8008;
 
 formElement.addEventListener("submit", (event) => {
     event.preventDefault();
+    resultElement.classList.add("form__result--field");
 
     let amount = +amountElement.value;
     let currency = currencyElement.value;
@@ -39,4 +40,5 @@ formElement.addEventListener("submit", (event) => {
 
 resetButton.addEventListener("click", () => {
     resultElement.innerHTML = "";
+    resultElement.classList.remove("form__result--field");
 });

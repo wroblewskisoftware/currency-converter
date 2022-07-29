@@ -34,19 +34,18 @@
 
 .form__button:hover {
     background-color: hsl(238, 100%, 30%);
-    box-shadow: 4px 4px 10px 0px rgb(67, 67, 67);
 }
 
 .form__button:active {
-    background-color: hsl(240, 3%, 28%);
+    background-color: hsl(238, 100%, 15%);
 }
 
 .form__fieldset {
-    border: 2px solid rgb(159, 159, 159);
-    box-shadow: 5px 5px 18px -3px #9F9F9F;
+    border: 2px solid rgb(35, 35, 35);
     border-radius: 5px;
     margin: 25px 0 20px;
     padding: 20px;
+    background-color: whitesmoke;
 }
 
 .form__legend {
@@ -61,6 +60,10 @@
     margin: 0;
 }
 
-.form__result {
+.form__result--field {
+    background-color: whitesmoke;
+    border: 2px solid rgb(35, 35, 35);
+    border-radius: 5px;
+    padding: 20px;
     line-height: 1.5;
 }
