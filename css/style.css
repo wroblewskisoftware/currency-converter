@@ -1,5 +1,6 @@
 html {
     box-sizing: border-box;
+    height: 100%;
 }
 
 *, ::after, ::before {
@@ -8,8 +9,8 @@ html {
 
 body {
     font-family: 'Lato', sans-serif;
-    background-image: url("../images/coins.jpg");
+    background-image: url("../images/background.jpg");
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: cover;
     background-position: top;
 }
