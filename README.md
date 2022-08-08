@@ -1,6 +1,6 @@
 # Currency-converter
 
-![Screenshot of the page](https://i.ibb.co/qWJz6Fs/Przechwytywanie.jpg)
+![Animated page image](images/currency-converter.gif)
 
 ## Demo
 
