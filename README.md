@@ -16,6 +16,7 @@ The correctness of my work is supervised by [Krzysztof Dąbrowski](https://www.l
 ## Technologies
 
 - BEM
+- Flexbox
 - ES6+ Features
 
 ## Instruction
