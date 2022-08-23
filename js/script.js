@@ -1,44 +1,69 @@
-console.log("Cześć! Ten kod jest już w repozytorium Git.");
+{
+    const welcome = () => {
+        console.log("Cześć! Ten kod jest już w repozytorium Git.");
+    };
 
-let formElement = document.querySelector(".js-form");
-let amountElement = document.querySelector(".js-amount");
-let currencyElement = document.querySelector(".js-currency");
-let resultElement = document.querySelector(".js-result");
-let resetButton = document.querySelector(".js-reset");
-let eurValue = 4.7578;
-let usdValue = 4.6682;
-let gbpValue = 5.5738;
-let chfValue = 4.8008;
+    const reset = () => {
+        const resultElement = document.querySelector(".js-result");
+        resultElement.innerHTML = "";
+        resultElement.classList.remove("form__result--field");
+    };
 
-formElement.addEventListener("submit", (event) => {
-    event.preventDefault();
-    resultElement.classList.add("form__result--field");
+    const updateResultText = (amount, result, currency) => {
+        const resultElement = document.querySelector(".js-result");
+        resultElement.innerHTML = `W dniu 21.07.2022r. za <strong>${amount} PLN</strong> możesz nabyć <strong>${result.toFixed(2)} ${currency.toUpperCase()}</strong>.`;
 
-    let amount = +amountElement.value;
-    let currency = currencyElement.value;
-    let result;
-    switch (currency) {
-        case "eur":
-            result = amount / eurValue;
-            break;
+        const resetButton = document.querySelector(".js-reset");
+        resetButton.addEventListener("click", reset);
+    };
 
-        case "usd":
-            result = amount / usdValue;
-            break;
+    const onResultField = () => {
+        const resultElement = document.querySelector(".js-result");
+        resultElement.classList.add("form__result--field");
+    };
 
-        case "gbp":
-            result = amount / gbpValue;
-            break;
+    const calculateResult = (amount, currency) => {
+        const eurValue = 4.7578;
+        const usdValue = 4.6682;
+        const gbpValue = 5.5738;
+        const chfValue = 4.8008;
 
-        case "chf":
-            result = amount / chfValue;
-            break;
-    }
+        switch (currency) {
+            case "eur":
+                return amount / eurValue;
 
-    resultElement.innerHTML = `W dniu 21.07.2022r. za <strong>${amount} PLN</strong> możesz nabyć <strong>${result.toFixed(2)} ${currency.toUpperCase()}</strong>.`;
-});
+            case "usd":
+                return amount / usdValue;
 
-resetButton.addEventListener("click", () => {
-    resultElement.innerHTML = "";
-    resultElement.classList.remove("form__result--field");
-});
+            case "gbp":
+                return amount / gbpValue;
+
+            case "chf":
+                return amount / chfValue;
+        };
+    };
+
+    const onFormSubmit = (event) => {
+        event.preventDefault();
+
+        const amountElement = document.querySelector(".js-amount");
+        const currencyElement = document.querySelector(".js-currency");
+
+        const amount = +amountElement.value;
+        const currency = currencyElement.value;
+
+        const result = calculateResult(amount, currency);
+
+        onResultField();
+        updateResultText(amount, result, currency);
+    };
+
+    const init = () => {
+        welcome();
+
+        const formElement = document.querySelector(".js-form");
+        formElement.addEventListener("submit", onFormSubmit);
+    };
+
+    init();
+};
